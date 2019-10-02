@@ -21,7 +21,13 @@
 
 //Code Here
 
-
+let user = {
+  username: "johnsmith215",
+  email: "JohnSmith@yahoo.com",
+  getUsername(){
+    return this.username;
+  }
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -43,7 +49,7 @@ class Animal {
 
 //Code Here
 
-
+newAnimal1 = 
 
 ////////// PROBLEM 3 //////////
 
@@ -63,7 +69,7 @@ let who = {
 
 //Code Here
 
-
+bind()
 
 ////////// PROBLEM 4 //////////
 
