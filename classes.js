@@ -37,10 +37,11 @@ class Employee {
     this.last_name = last_name;
     this.email = email;
     this.age = age;
+    this.makeWidget = () =>  this.first_name + " " + this.last_name + ' Widget'
   }
-  makeWidget(){
-    return this.first_name + this.last_name + "Widget"
-  }
+  // makeWidget(){
+  //   return this.first_name + " " + this.last_name + ' widget'
+  // }
 }
 
 // const newEmployee = Employee("John", "Smith", "JohnSmith@yahoo.com", 27)
@@ -64,7 +65,7 @@ class Employee {
 
 class Manager extends Employee {
   constructor(first_name, last_name, email, age, reports){
-    super("Employee", first_name, last_name, email, age);
+    super(first_name, last_name, email, age);
     this.reports = reports;
   }
 }

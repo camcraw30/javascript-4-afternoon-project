@@ -32,7 +32,7 @@ let user = {
 ////////// PROBLEM 2 //////////
 
 /*
- Below we have the class Animal.  The eat method is using the "this" keyword.  Use the "new" keyword to assign context to "this", and save the instance to a variable named animal1.  You can pass anything you want in for name, species and food.
+  Below we have the class Animal.  The eat method is using the "this" keyword.  Use the "new" keyword to assign context to "this", and save the instance to a variable named animal1.  You can pass anything you want in for name, species and food.
 */
 
 class Animal {
@@ -49,7 +49,7 @@ class Animal {
 
 //Code Here
 
-newAnimal1 = 
+let animal1 = new Animal('bill', 'dog', 'meat')
 
 ////////// PROBLEM 3 //////////
 
@@ -69,7 +69,7 @@ let who = {
 
 //Code Here
 
-bind()
+const whoSaysHi = sayHi.bind(who)
 
 ////////// PROBLEM 4 //////////
 
@@ -82,7 +82,7 @@ function whatIsThis() {
 }
 
 // uncomment the line below and tell us what the context of "this" is for whatIsThis()
-//let context1 = ???
+let context1 = this
 
 let product = {
   name: 'snake plant',
@@ -93,7 +93,7 @@ let product = {
 let func = whatIsThis.bind(product)
 
 // uncomment the line below and tell us what the context of "this" is when we invoke func
-//let context2 = ???
+let context2 = product
 
 let vacation = {
   location: 'Hawaii',
@@ -103,13 +103,16 @@ let vacation = {
   whatIsThis: whatIsThis
 }
 
+let func2 = whatIsThis.call(vacation)
+// vacation.whatIsThis()
+
 // uncomment the line below and tell us what the context of "this" is when we invoke vacation.whatIsThis
-//let context3 = ???
+let context3 = vacation
 
 
 class Family {
   constructor(numParents, numKids, numPets) {
-    this.numParents = numPets;
+    this.numParents = numParents;
     this.numKids = numKids;
     this.numPets = numPets;
   }
@@ -122,4 +125,4 @@ class Family {
 let family1 = new Family(2, 4, 1)
 
 // uncomment the line below and tell us what the context of "this" is for the instance of Family created above.
-//let context4 = ???
+let context4 = family1
