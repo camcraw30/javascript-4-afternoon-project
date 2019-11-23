@@ -64,9 +64,15 @@ class Employee {
 //Code Here
 
 class Manager extends Employee {
-  constructor(first_name, last_name, email, age, reports){
+  constructor(first_name, last_name, email, age){
     super(first_name, last_name, email, age);
-    this.reports = reports;
+    this.reports = [];
+  }
+      hire(Employee){
+        this.reports.push(Employee)
+  }
+  fire(Employee) {
+    this.reports.splice(Employee, 1)
   }
 }
 
@@ -93,7 +99,38 @@ class Manager extends Employee {
 
 //Code Here
 
-
+class ProgressiveManager extends Manager {
+  constructor(first_name, last_name, email, age, reports, title, bonus) {
+    super(first_name, last_name, email, age, reports)
+    this.title = 'Not a manager';
+    this.bonus = 0;
+  }
+    hire(employee) {
+      super.hire(employee)
+      if (this.reports.length === 0) {
+        this.title = 'Not a manager'
+      }
+      else if (this.reports.length <= 3) {
+        this.title = 'Barely Manager'
+      }
+      else if (this.reports.length <= 10) {
+        this.title = 'Mostly Manager'
+      }
+      else if(this.reports.length <= 50) {
+        this.title = 'Manager'
+      }
+      else if(this.reports.length <= 100) {
+        this.title = 'Manager Plus'
+      }
+      else {
+        this.title = 'Bestest Manager'
+      }
+    }
+  fire(index) {
+    super.fire(index);
+    this.bonus += 100;
+  }
+}
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -120,4 +157,24 @@ class Manager extends Employee {
 
 //Code Here
 
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(num) {
+    this.widgets_made_count += num;
+    this.wear_and_tear_count += Math.floor(num / 50);
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+  reboot() {
+    return  () => {
+      this.wear_and_tear_count -= 10;
+      this.needs_reboot = false;
+    } 
+  }
+}
 
